@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    --background: 15 15 15;
+    --foreground: 255 255 255;
+  }
+  body {
+    @apply bg-brand-dark text-white antialiased;
+  }
+  * {
+    @apply border-brand-border;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-brand-card;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-brand-border rounded-full;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-brand-card border border-brand-border rounded-xl p-5;
+  }
+  .btn-primary {
+    @apply bg-brand-red hover:bg-brand-accent text-white font-semibold px-4 py-2 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-brand-border hover:bg-[#333] text-white font-medium px-4 py-2 rounded-lg transition-all duration-200;
+  }
+  .input {
+    @apply bg-[#111] border border-brand-border rounded-lg px-3 py-2 text-white placeholder-brand-muted focus:outline-none focus:border-brand-red transition-colors w-full;
+  }
+  .textarea {
+    @apply bg-[#111] border border-brand-border rounded-lg px-3 py-2 text-white placeholder-brand-muted focus:outline-none focus:border-brand-red transition-colors w-full resize-none font-mono text-sm;
+  }
+  .label {
+    @apply text-sm font-medium text-brand-muted mb-1 block;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+  .section-title {
+    @apply text-lg font-semibold mb-4;
+  }
+  .score-bar {
+    @apply h-2 rounded-full bg-brand-border overflow-hidden;
+  }
+  .score-fill {
+    @apply h-full rounded-full transition-all duration-500;
+  }
+}
+
+/* Streaming text animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink::after {
+  content: '▌';
+  animation: blink 1s step-start infinite;
+  @apply text-brand-red;
+}

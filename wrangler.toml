@@ -1,0 +1,10 @@
+name = "ytmanager"
+type = "javascript"
+compatibility_date = "2024-10-04"
+
+[build]
+command = "npm run build"
+output_dir = ".next"
+
+[env.production]
+NODE_VERSION = "20"
